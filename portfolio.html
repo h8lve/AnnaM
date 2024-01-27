@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Page</title>
+    <link rel="stylesheet" href="css/portfoliostyles.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <a class="logo" href="main.html"><img src="images/logo.png" alt="Logo"></a>
+              <ul>
+                <li><a href="main.html">Main</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="left-side">
+                <h2>Graphic Design</h2>
+                <p><li><a href="gddesign.html" id="gddesign">View Portfolio</a></li></p>
+            </div>
+            <div class="right-side">
+                <img src="images/page_portfolio1.jpg" alt="Image">
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="left-side">
+                <h2>Photography</h2>
+                <p><a href="https://anna9806.pixieset.com" class="link" id="lemon">View Portfolio</a></p>
+
+            </div>
+            <div class="right-side">
+                <img src="images/page_portfolio2.jpg" alt="Image">
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="left-side">
+                <h2>Videography</h2>
+                <p><a href="https://youtu.be/NANKON9avC0" class="link" id="lemon">View Portfolio</a></p>
+            </div>
+            <div class="right-side">
+                <img src="images/page_portfolio3.jpg" alt="Image">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var sections = document.querySelectorAll("section");
+
+            var options = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.1 
+            };
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("fade-in");
+                        entry.target.classList.remove("fade-out"); 
+                    } else {
+                        entry.target.classList.add("fade-out");
+                        entry.target.classList.remove("fade-in"); 
+                    }
+                });
+            }, options);
+
+            sections.forEach(function (section) {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
